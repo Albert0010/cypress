@@ -43,7 +43,7 @@ export  const paths = {
 
 export const cssProperties = {
     bgColor:"background-color",
-    hoverValueLight:"#f6821f",
+    hoverValueLight:"rgb(246, 130, 31)",
     hoverValueOpacity:"#101010",
 
 }

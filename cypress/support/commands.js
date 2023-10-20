@@ -27,14 +27,18 @@
 import buttonPage from "../page-objects/button.page.js";
 import {cssProperties} from "../_helper/constants.js";
 
-Cypress.Commands.add("waitForElementToBeVisible", { prevSubject: "element" },  (element) => {
-    debugger
-    return cy.wrap(element)
-        .trigger('mouseover')
-        .invoke("css", "background-color")
-        .then((bgColor) => {
-            debugger
-            console.log('Background color:', bgColor);
-        });
-    // cy.wrap(hex).should('eq', cssProperties.hoverValueLight);
+Cypress.Commands.add("customHover", { prevSubject: "element" }, (element) => {
+    // Wrap the element and trigger 'mouseover'
+    const domElement = element.get(0)
+    return cy.wrap(domElement).invoke('show').realHover('mouse')
+    //     .then((e) => {
+    //     // Use .then to work with the results of Cypress commands
+    //     cy.wrap(domElement)
+    //         .should('have.css', 'background-color')
+    //         .then((bgColor) => {
+    //             debugger
+    //
+    //             cy.wrap(bgColor).should('eq',cssProperties.hoverValueLight)
+    //         });
+    // });
 });
